@@ -15,6 +15,9 @@ import { toast, Toaster } from "sonner";
 import { ChatCompletionStream } from "together-ai/lib/ChatCompletionStream.mjs";
 import LoadingDots from "../../components/loading-dots";
 import { shareApp } from "./actions";
+import TeamHero from "@/components/teamhero";
+import TeamCard from "@/components/teamcard";
+import Title from "@/components/title";
 
 export default function Home() {
   let [status, setStatus] = useState<
@@ -157,6 +160,7 @@ export default function Home() {
         Turn your <span className="text-blue-600">idea</span>
         <br /> into an <span className="text-blue-600">app</span>
       </h1>
+      
 
       <form className="w-full max-w-xl" onSubmit={createApp}>
         <fieldset disabled={loading} className="disabled:opacity-75">
@@ -247,8 +251,15 @@ export default function Home() {
           </div>
         </fieldset>
       </form>
-
-      <hr className="border-1 mb-20 h-px bg-gray-700 dark:bg-gray-700" />
+      {/* <div className="flex  items-center justify-between gap-3 p-10 sm:justify-center">
+      <Title title="" /> 
+      </div>
+              <TeamHero />
+      <div className="flex  items-center justify-between gap-3 p-10 sm:justify-center">
+      <Title title="Team Members" /> 
+      </div>
+      <TeamCard />
+      <hr className="border-1 mb-20 h-px bg-gray-700 dark:bg-gray-700" /> */}
 
       {status !== "initial" && (
         <motion.div
@@ -383,6 +394,7 @@ export default function Home() {
                 </motion.div>
               )}
             </AnimatePresence>
+        
           </div>
         </motion.div>
       )}
